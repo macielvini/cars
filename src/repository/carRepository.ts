@@ -6,7 +6,7 @@ async function getCars() {
 }
 
 async function getCar(id: number) {
-  const data = await prisma.car.find({
+  const data = await prisma.car.findFirst({
     where: {
       id: id,
     },
@@ -26,7 +26,7 @@ async function getCarWithLicensePlate(licensePlate: string) {
 async function createCar(
   model: string,
   licensePlate: string,
-  year: number,
+  year: string,
   color: string
 ) {
   await prisma.car.create({
